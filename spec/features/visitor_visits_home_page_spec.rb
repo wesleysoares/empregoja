@@ -8,7 +8,9 @@ feature 'Visitor visits Emprego Ja home page' do
 
   scenario 'and see jobs' do
     Job.create(title: 'Vaga de Dev',
+               category: 'Desenvolvedor',
                company: 'Campus Code',
+               description: 'Dev Junior Rails com ao menos um projeto',
                location: 'São Paulo')
     visit root_path
     expect(page).to have_content('Vaga de Dev')
