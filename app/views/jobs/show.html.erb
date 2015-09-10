@@ -3,5 +3,8 @@
   <%= @job.company %><br>
   <%= @job.location %><br>
   <%= @job.category %><br>
-  <%= @job.description %>
+  <%= @job.description %><br>
+  <% if @job.featured? %>
+    <strong>Vaga em Destaque</strong>
+  <% end %>
 </p>
