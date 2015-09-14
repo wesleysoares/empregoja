@@ -4,4 +4,8 @@
   <%= @job.location %><br>
   <%= @job.category %><br>
   <%= @job.description %>
+
+  <% if @job.featured? %>
+  Vaga em Destaque
+  <% end %>
 </p>
