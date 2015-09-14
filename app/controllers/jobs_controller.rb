@@ -19,6 +19,7 @@ class JobsController < ApplicationController
     if(@job.save)
       redirect_to @job
     else
+      @companies = Company.all
       render 'new'
     end
   end
