@@ -58,4 +58,13 @@ feature 'User creates a new job' do
     expect(page).to have_content 'Vaga em Destaque'
   end
 
+  scenario 'invalid' do
+    visit new_job_path
+
+    click_on 'Criar Vaga'
+
+    expect(page).to have_content 'Warning! All fields are mandatory.'
+
+  end
+
 end
