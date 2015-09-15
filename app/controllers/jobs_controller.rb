@@ -9,6 +9,7 @@ class JobsController < ApplicationController
 
   def new
     @job = Job.new
+    @companies = Company.all
   end
 
   def create
@@ -23,6 +24,6 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:title, :location, :category, :company, :description, :featured)
+    params.require(:job).permit(:title, :location, :category, :company_id, :description, :featured)
   end
 end

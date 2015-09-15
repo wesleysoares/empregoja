@@ -12,5 +12,8 @@
   <%= f.text_area :description %>
   <%= f.label :featured %>
   <%= f.check_box :featured %>
+  <%= f.label :company %>
+  <%= f.collection_select(:company_id, @companies, :id, :name) %>
   <%= f.submit 'Criar Vaga' %>
+
 <% end %>
