@@ -8,9 +8,10 @@ feature 'User creates a new job' do
                           mail:     'contato@campuscode.com.br',
                           phone:    '2369-3476')
 
+    category = Category.create(name: 'Desenvolvedor')
+
     job = Job.new(title:    'Dev Master',
                   location: 'Rio de Janeiro',
-                  category: 'Desenvolvedor',
                   description: 'Vaga para Dev Master para o Bootcamp Rails')
 
     visit new_job_path
@@ -18,6 +19,7 @@ feature 'User creates a new job' do
     fill_in 'Location',    with: job.location
     fill_in 'Category',    with: job.category
     select  'Campus Code'
+    select  'Desenvolvedor'
     fill_in 'Description', with: job.description
 
     click_on 'Criar Vaga'
@@ -35,9 +37,10 @@ feature 'User creates a new job' do
                             mail:     'contato@campuscode.com.br',
                             phone:    '2369-3476')
 
+    category = Category.create(name: 'Desenvolvedor')
+
     job = Job.new(title:    'Dev Master',
                   location: 'Rio de Janeiro',
-                  category: 'Desenvolvedor',
                   description: 'Vaga para Dev Master para o Bootcamp Rails')
 
     visit new_job_path
@@ -45,6 +48,7 @@ feature 'User creates a new job' do
     fill_in 'Location',    with: job.location
     fill_in 'Category',    with: job.category
     select  'Campus Code'
+    select  'Desenvolvedor'
     fill_in 'Description', with: job.description
     check   'Featured'
 
