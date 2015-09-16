@@ -10,4 +10,7 @@
     </p>
   </div>
 <% end %>
+<% @companies.each do |comp| %>
+  <%= link_to comp.name, company_path(comp) %>
+<% end %>
 </section>
