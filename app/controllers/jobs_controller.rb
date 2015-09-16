@@ -17,6 +17,8 @@ class JobsController < ApplicationController
     if(@job.save)
       redirect_to @job
     else
+      flash[:danger] = "Warning! All fields are mandatory."
+      @companies = Company.all
       render 'new'
     end
   end

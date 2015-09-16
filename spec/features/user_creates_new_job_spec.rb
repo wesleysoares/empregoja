@@ -27,6 +27,7 @@ feature 'User creates a new job' do
     expect(page).to have_content 'Desenvolvedor'
     expect(page).to have_content 'Campus Code'
     expect(page).to have_content 'Vaga para Dev Master para o Bootcamp Rails'
+    expect(page).to_not have_content 'Warning! All fields are mandatory.'
   end
 
   scenario 'featured job' do
