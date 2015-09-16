@@ -7,11 +7,14 @@ feature 'Visitor visits job details' do
                              mail:     'contato@campuscode.com.br',
                              phone:    '2369-3476')
 
-    Job.create(title: 'Vaga de Dev',
-               category: 'Desenvolvedor',
+    category = Category.create(name: 'Desenvolvedor')
+
+    Job.create(title: 'Vaga de Dev',               
                description: 'Dev Junior Rails com ao menos um projeto',
                location: 'São Paulo',
-               company_id: company.id)
+               company_id: company.id,
+               category_id: category.id)
+
     visit root_path
     click_on 'Ver mais'
     expect(page).to have_content 'Vaga de Dev'

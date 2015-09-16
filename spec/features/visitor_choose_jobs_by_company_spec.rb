@@ -7,18 +7,21 @@ feature 'Visitor choose jobs by company' do
                              mail:     'contato@campuscode.com.br',
                              phone:    '2369-3476')
 
+    category = Category.create(name: 'Desenvolvedor')
+
     job = Job.create(title: 'Vaga de Dev',
-               category: 'Desenvolvedor',
                description: 'Dev Junior Rails com ao menos um projeto',
                location: 'São Paulo',
-               company_id: company.id)
+               company_id: company.id,
+               category_id: category.id)
+
     visit root_path
 
     click_on company.name
 
     expect(page).to have_content company.name
     expect(page).to have_content job.title
-    expect(page).to have_content job.category
+    expect(page).to have_content job.category.name
     expect(page).to have_content job.description
     expect(page).to have_content job.location
   end
@@ -34,11 +37,13 @@ feature 'Visitor choose jobs by company' do
                                mail:       'contato@company.com.br',
                                phone:      '1111-2222')
 
+    category = Category.create(name: 'Desenvolvedor')
+
     job = Job.create(title: 'Vaga de Dev',
-                     category: 'Desenvolvedor',
                      description: 'Dev Junior Rails com ao menos um projeto',
                      location: 'São Paulo',
-                     company_id: company.id)
+                     company_id: company.id,
+                     category_id: category.id)
 
     visit root_path
 
@@ -46,7 +51,7 @@ feature 'Visitor choose jobs by company' do
 
     expect(page).to have_content company_2.name
     expect(page).not_to have_content job.title
-    expect(page).not_to have_content job.category
+    expect(page).not_to have_content job.category.name
     expect(page).not_to have_content job.description
     expect(page).not_to have_content job.location
   end

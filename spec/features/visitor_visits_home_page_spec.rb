@@ -12,14 +12,18 @@ feature 'Visitor visits Emprego Ja home page' do
                              mail:     'contato@campuscode.com.br',
                              phone:    '2369-3476')
 
+    category = Category.create(name: 'Desenvolvedor')
+
     Job.create(title: 'Vaga de Dev',
-               category: 'Desenvolvedor',
                description: 'Dev Junior Rails com ao menos um projeto',
                location: 'São Paulo',
-               company_id: company.id)
+               company_id: company.id,
+               category_id: category.id)
+
     visit root_path
     expect(page).to have_content('Vaga de Dev')
     expect(page).to have_content('Campus Code')
+    expect(page).to have_content('Desenvolvedor')
     expect(page).to have_content('São Paulo')
   end
 end
