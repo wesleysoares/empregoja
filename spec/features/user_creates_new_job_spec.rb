@@ -17,7 +17,6 @@ feature 'User creates a new job' do
     visit new_job_path
     fill_in 'Title',       with: job.title
     fill_in 'Location',    with: job.location
-    fill_in 'Category',    with: job.category
     select  'Campus Code'
     select  'Desenvolvedor'
     fill_in 'Description', with: job.description
@@ -45,8 +44,7 @@ feature 'User creates a new job' do
 
     visit new_job_path
     fill_in 'Title',       with: job.title
-    fill_in 'Location',    with: job.location
-    fill_in 'Category',    with: job.category
+    fill_in 'Location',    with: job.location    
     select  'Campus Code'
     select  'Desenvolvedor'
     fill_in 'Description', with: job.description
