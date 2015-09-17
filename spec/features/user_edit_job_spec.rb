@@ -9,7 +9,7 @@ feature 'User creates a new job' do
                             phone:    '2369-3476')
 
     new_company = Company.create(name:     'Code Campus',
-                                 location: 'Refice',
+                                 location: 'Recife',
                                  mail:     'contato@codecampus.com.br',
                                  phone:    '1111-5555')
 
@@ -28,7 +28,7 @@ feature 'User creates a new job' do
     fill_in 'Title',       with: 'Dev Mais que Master'
     fill_in 'Location',    with: 'Recife'
     select  'Code Campus'
-    select  'Dev Ninga'
+    select  'Dev Ninja'
     fill_in 'Description', with: 'Vaga para Dev Mais que Master para o Quickstart'
 
     click_on 'Atualizar Vaga'
@@ -64,10 +64,10 @@ feature 'User creates a new job' do
     fill_in 'Description', with: 'Vaga para Dev Mais que Master para o Quickstart'
     check   'Featured'
 
-    click_on 'Criar Vaga'
+    click_on 'Atualizar Vaga'
 
     expect(page).to have_content 'Dev Mais que Master'
-    expect(page).to have_content 'São Paulo'
+    expect(page).to have_content 'Recife'
     expect(page).to have_content 'Desenvolvedor'
     expect(page).to have_content 'Campus Code'
     expect(page).to have_content 'Vaga para Dev Mais que Master para o Quickstart'
