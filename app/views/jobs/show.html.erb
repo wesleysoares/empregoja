@@ -2,7 +2,7 @@
 <p>
   <%= @job.company.name if @job.company %><br>
   <%= @job.location %><br>
-  <%= @job.category %><br>
+  <%= @job.category.name %><br>
   <%= @job.description %><br>
   <% if @job.featured? %>
     <strong>Vaga em Destaque</strong>
