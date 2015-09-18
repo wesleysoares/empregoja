@@ -1,16 +1,4 @@
 <h1>Emprego Já</h1>
 <p><%= flash[:error] %></p>
-<%= form_for @job do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :location %>
-  <%= f.text_field :location %>
-  <%= f.collection_select :company_id, @companies, :id, :name %>
-  <%= f.label :category %>
-  <%= f.collection_select :category_id, @categories, :id, :name %>
-  <%= f.label :description %>
-  <%= f.text_area :description %>
-  <%= f.label :featured %>
-  <%= f.check_box :featured %>
-  <%= f.submit 'Criar Vaga' %>
-<% end %>
+
+<%= render partial: "form", locals: {button_label: "Criar Vaga"} %>
