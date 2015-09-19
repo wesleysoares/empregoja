@@ -1,0 +1,8 @@
+<h1>Emprego Já</h1>
+<h2>Nova Categoria</h2>
+<%= flash[:error] %>
+<%= form_for @category do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit "Criar Categoria" %>
+<% end %>
