@@ -18,7 +18,11 @@ feature 'Visitor view recent jobs' do
     visit root_path
 
     # primeira elemento com o css "jobs" da pagina
+<<<<<<< HEAD
     within('.jobs:first-child') do
+=======
+    within('.jobs:first') do
+>>>>>>> Add some refactoring
       expect(page).to have_content('Novidade')
     end
   end
