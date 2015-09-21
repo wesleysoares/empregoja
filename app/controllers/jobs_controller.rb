@@ -1,18 +1,16 @@
 class JobsController < ApplicationController
+  before_filter :load_collections, only: [:index, :new, :edit]
+  before_filter :load_job, only: [:show, :edit, :update]
+
   def index
-    @jobs = Job.all
-    @companies = Company.all
-    @categories = Category.all
+    @jobs = Job.unexpired_jobs
   end
 
   def show
-    @job = Job.find(params[:id])
   end
 
   def new
     @job = Job.new
-    @companies = Company.all
-    @categories = Category.all
   end
 
   def create
@@ -21,25 +19,29 @@ class JobsController < ApplicationController
       redirect_to @job
     else
       flash[:error] = "Warning! All fields are mandatory."
-      @companies = Company.all
-      @categories = Category.all
+      load_collections
       render 'new'
     end
   end
 
   def edit
-    @job = Job.find(params[:id])
-    @companies = Company.all
-    @categories = Category.all
   end
 
   def update
-    @job = Job.find(params[:id])
     @job.update!(job_params)
     redirect_to @job
   end
 
   private
+
+  def load_collections
+    @companies = Company.all
+    @categories = Category.all
+  end
+
+  def load_job
+    @job = Job.find(params[:id])
+  end
 
   def job_params
     params.require(:job).permit(:title, :location, :category_id, :company_id, :description, :featured)

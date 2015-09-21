@@ -4,6 +4,8 @@ class Job < ActiveRecord::Base
 
   validates :title, :location, :description, :category, :company, presence: true
 
+  EXPIRATION_DAYS = 90.days
+
   def featured?
     featured
   end
@@ -11,4 +13,14 @@ class Job < ActiveRecord::Base
   def recent?
     DateTime.now < (created_at + 5.days)
   end
+
+  def expired?
+    created_at < EXPIRATION_DAYS.ago
+  end
+
+  def self.unexpired_jobs
+    Job.where("created_at > ?", EXPIRATION_DAYS.ago)
+  end
+
+
 end
