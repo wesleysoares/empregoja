@@ -12,11 +12,14 @@ feature 'Visitor view recent jobs' do
     Job.create(title: 'Vaga de Dev',
                description: 'Dev Junior Rails com ao menos um projeto',
                location: 'São Paulo',
-               company_id: company.id,
-               category_id: category.id)
+               company: company,
+               category: category)
 
     visit root_path
 
-    expect(page).to have_content('Novidade')
+    # primeira elemento com o css "jobs" da pagina
+    within('.jobs:first') do
+      expect(page).to have_content('Novidade')
+    end
   end
 end

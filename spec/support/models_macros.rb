@@ -13,10 +13,9 @@ module ModelsMacros
   def create_job
     company = create_company
     category = create_category
-    Job.create(title: 'Desenvolvedor Rails',
-               description: 'Desenvolvedor Full Stack Rails',
-               location: 'São Paulo - SP',
-               company_id: company.id,
-               category_id: category.id)
+    company.jobs.create(title: 'Desenvolvedor Rails',
+                        description: 'Desenvolvedor Full Stack Rails',
+                        location: 'São Paulo - SP',
+                        category: category)
   end
 end
