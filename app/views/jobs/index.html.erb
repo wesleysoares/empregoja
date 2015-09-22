@@ -8,6 +8,9 @@
       <% if job.recent? %>
         <em>Novidade</em><br>
       <% end %>
+      <% if job.company.premium? %>
+        <p>Empresa Premium</p>
+      <% end %>
       <%= link_to 'Ver mais', job %>
     </div>
   <% end %>
