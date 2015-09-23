@@ -11,4 +11,9 @@ class Job < ActiveRecord::Base
   def recent?
     DateTime.now < (created_at + 5.days)
   end
+
+  def expired?
+    created_at < 90.days.ago
+  end
+
 end
