@@ -1,13 +1,19 @@
-<h1><%= @job.title %></h1>
-<p>
-  <%= @job.company.name if @job.company %><br>
-  <%= @job.location %><br>
-  <%= @job.category.name %><br>
-  <%= @job.description %><br>
-  <% if @job.featured? %>
-    <strong>Vaga em Destaque</strong>
-  <% end %>
-  <% if @job.expired? %>
-  <p>Vaga Expirada</p>
-  <% end %>
-</p>
+<h3><%= @job.title %></h3>
+<hr>
+  <dl class="dl-horizontal">
+    <dt>Empresa:</dt>
+    <dd><%= @job.company.name if @job.company %></dd><br>
+    <dt>Localização:</dt>
+    <dd><%= @job.location %></dd><br>
+    <dt>Categoria:</dt>
+    <dd><%= @job.category.name %></dd><br>
+    <dt>Descrição:</dt>
+    <dd><%= @job.description %></dd><br>
+    <% if @job.featured? %>
+      <strong>Vaga em Destaque</strong>
+    <% end %>
+    <% if @job.expired? %>
+    <p>Vaga Expirada</p>
+    <% end %>
+  </dl>
+  <%= link_to "Voltar", '/' %>
