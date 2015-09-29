@@ -15,12 +15,12 @@ class JobsController < ApplicationController
 
   def create
     @job = Job.new(job_params)
-    if(@job.save)
+    if @job.save
       redirect_to @job
     else
-      flash[:error] = "Warning! All fields are mandatory."
+      flash[:error] = 'Warning! All fields are mandatory.'
       load_collections
-      render 'new'
+      render :new
     end
   end
 
@@ -28,7 +28,7 @@ class JobsController < ApplicationController
   end
 
   def update
-    @job.update!(job_params)
+    @job.update! job_params
     redirect_to @job
   end
 
@@ -44,6 +44,13 @@ class JobsController < ApplicationController
   end
 
   def job_params
-    params.require(:job).permit(:title, :location, :category_id, :company_id, :description, :featured)
+    params.require(:job).permit(
+      :title,
+      :location,
+      :category_id,
+      :company_id,
+      :description,
+      :featured
+    )
   end
 end

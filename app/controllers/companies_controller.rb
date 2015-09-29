@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_action :load_company, only: [:show, :edit, :update]
+  before_action :set_company, only: [:show, :edit, :update]
 
   def new
     @company = Company.new
@@ -10,8 +10,8 @@ class CompaniesController < ApplicationController
     if(@company.save)
       redirect_to @company
     else
-      flash[:error] = "Warning! All fields are mandatory."
-      render 'new'
+      flash[:error] = 'Warning! All fields are mandatory.'
+      render :new
     end
   end
 
@@ -22,18 +22,17 @@ class CompaniesController < ApplicationController
   end
 
   def update
-    @company.update(company_params)
-    if(@company.save)
+    if @company.update(company_params)
       redirect_to @company
     else
-      flash[:error] = "Warning! All fields are mandatory."
-      render 'new'
+      flash[:error] = 'Warning! All fields are mandatory.'
+      render :edit
     end
   end
 
   private
 
-  def load_company
+  def set_company
     @company = Company.find(params[:id])
   end
 

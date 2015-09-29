@@ -6,6 +6,8 @@ class Job < ActiveRecord::Base
 
   EXPIRATION_DAYS = 90.days
 
+  TYPES = ['intern', 'full-time', 'part-time']
+
   def featured?
     featured
   end
@@ -19,7 +21,7 @@ class Job < ActiveRecord::Base
   end
 
   def self.unexpired_jobs
-    Job.where("created_at > ?", EXPIRATION_DAYS.ago)
+    Job.where('created_at > ?', EXPIRATION_DAYS.ago)
   end
 
 

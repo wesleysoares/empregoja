@@ -1,16 +1,12 @@
 <h1>Emprego Já</h1>
 <h2><%= @company.name %></h2>
-<p>
-  <%= @company.location %><br>
-  <%= @company.phone %><br>
-  <%= @company.mail %><br>
-</p>
+  <p><%= @company.location %></p>
+  <p><%= @company.phone %></p>
+  <p><%= @company.mail %></p>
 <h3>Vagas</h3>
 <% @company.jobs.each do |job| %>
-<p>
-  <%= job.title %><br>
-  <%= job.location %><br>
-  <%= job.category.name %><br>
-  <%= job.description %><br>
-</p>
+  <p><%= job.title %></p>
+  <p><%= job.location %></p>
+  <p><%= job.category.name %></p>
+  <p><%= job.description %></p>
 <% end %>

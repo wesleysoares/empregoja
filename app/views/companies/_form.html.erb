@@ -1,4 +1,4 @@
-<%= flash[:error] %>
+<p class="error"><%= flash[:error] %></p>
 <%= form_for @company do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
