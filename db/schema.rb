@@ -34,11 +34,10 @@ ActiveRecord::Schema.define(version: 20150916230144) do
     t.string   "location"
     t.string   "category"
     t.text     "description"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.boolean  "featured"
     t.integer  "company_id"
-    t.date     "expiration_date"
     t.integer  "category_id"
   end
 
