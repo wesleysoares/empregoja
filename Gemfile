@@ -12,6 +12,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'therubyracer'
 
 group :development, :test do
+  gem 'factory_girl_rails'
   gem 'simplecov', require: false
   gem 'byebug'
   gem 'rspec-rails'
