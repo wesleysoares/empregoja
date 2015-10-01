@@ -21,6 +21,7 @@ feature "User update company" do
     expect(page).to have_content "11 6546463"
     expect(page).to have_content "sergio@campus.com"
     expect(page).to have_content "Barcelona"
-    
+
   end
+
 end
