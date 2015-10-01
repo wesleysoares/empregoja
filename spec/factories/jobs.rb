@@ -1,10 +1,10 @@
 FactoryGirl.define do
   factory :job do
-    title "Desenvolvedor Ruby"
+    title 'Desenvolvedor Ruby'
     company
-    location "São Paulo"
+    location 'São Paulo'
     category
-    description "Criar sistemas utilizando a linguagem Ruby."
+    description 'Criar sistemas utilizando a linguagem Ruby.'
     featured true
   end
 end

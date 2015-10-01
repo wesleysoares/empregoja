@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
-  before_filter :load_collections, only: [:index, :new, :edit]
-  before_filter :load_job, only: [:show, :edit, :update]
+  before_action :load_collections, only: [:index, :new, :edit]
+  before_action :load_job, only: [:show, :edit, :update]
 
   def index
     @jobs = Job.unexpired_jobs
